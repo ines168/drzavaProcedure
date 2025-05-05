@@ -34,6 +34,13 @@ public class DrzavaProcedure {
     }
 
     private static void obrisiDrzave(Connection connection , int id) throws SQLException{
+//        Procedura:
+//        CREATE PROC ObrisiDrzave @drzaveID INT
+//        AS
+//                BEGIN
+//        DELETE FROM Drzava WHERE IDDrzava>=@drzaveID;
+//        END
+
         CallableStatement cs = connection.prepareCall("{call ObrisiDrzave(?)}");
         cs.setInt(1, id);
         cs.executeUpdate();
